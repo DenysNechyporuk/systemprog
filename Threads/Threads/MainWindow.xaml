@@ -1,0 +1,31 @@
+﻿<Window x:Class="_03_Threads.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_03_Threads"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Label DockPanel.Dock="Top">Prime numbers</Label>
+            <Label DockPanel.Dock="Top">From ::</Label>
+            <TextBox DockPanel.Dock="Top" Name="lowerTextBox"></TextBox>
+            <Label DockPanel.Dock="Top">To ::</Label>
+            <TextBox DockPanel.Dock="Top" Name="upperTextBox"></TextBox>
+            <Button DockPanel.Dock="Top" Name="startPrimeButton" Click="StartPrime_Click">Start</Button>
+            <Button DockPanel.Dock="Top" Click="StopPrime_Click">Stop</Button>
+            <ListBox Name="primeListBox"></ListBox>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <Label DockPanel.Dock="Top">Fibonacci numbers</Label>
+            <Button DockPanel.Dock="Top" Name="startFibButton" Click="StartFib_Click">Start</Button>
+            <Button DockPanel.Dock="Top" Click="StopFib_Click">Stop</Button>
+            <ListBox Name="fibListBox"></ListBox>
+        </DockPanel>
+    </Grid>
+</Window>
