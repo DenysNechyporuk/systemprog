@@ -1,92 +1,29 @@
-## =========================================================================
-## Build Results & Artifacts
-## =========================================================================
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
+.vs/
+.idea/
+.vscode/
 [Bb]in/
 [Oo]bj/
-[Ll]og/
-[Ll]ogs/
-
-# Output directories created by MSBuild
-[Aa]rtifacts/
-
-# NuGet Packages & Cache
-*.nupkg
-*.snupkg
-**/[Pp]ackages/*
-!**/[Pp]ackages/build/
-*.nuget.props
-*.nuget.targets
-project.lock.json
-project.assets.json
-
-# Publish output
-publish/
-**/publish/
-
-## =========================================================================
-## Visual Studio
-## =========================================================================
-.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
 *.user
+*.suo
 *.userosscache
 *.sln.docstates
-*.suo
-*.userprefs
-
-# Test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-*.visualstudio.g.props
-*.visualstudio.g.targets
-
-## =========================================================================
-## JetBrains Rider & ReSharper
-## =========================================================================
-.idea/
-*.sln.iml
-_ReSharper*/
-*.DotSettings.user
-
-## =========================================================================
-## Visual Studio Code
-## =========================================================================
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-## =========================================================================
-## User Secrets & Environment Configurations
-## =========================================================================
-# Локальні конфігурації з чутливими даними (паролі, ключі API тощо)
-appsettings.Development.json
-appsettings.Local.json
-*.env
-*.env.local
-
-## =========================================================================
-## OS & System Files
-## =========================================================================
-# Windows
+*.slnLaunch.user
+*.cache
+*.log
+*.tlog
+*.pdb
+*.ilk
+*.obj
+*.idb
+*.exe
+*.dll
+*.zip
+TestResults/
+packages/
+*.nupkg
 Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Linux
-*~
+desktop.ini
