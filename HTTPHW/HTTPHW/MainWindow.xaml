@@ -1,0 +1,34 @@
+<Window x:Class="HTTPHW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HTTPHW"
+        mc:Ignorable="d"
+        Title="File Downloader" Height="450" Width="800">
+    <DockPanel Margin="10">
+        <DockPanel DockPanel.Dock="Top" Margin="0 3">
+            <Label Width="70">URL :</Label>
+            <TextBox x:Name="urlTextBox" VerticalContentAlignment="Center"></TextBox>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Margin="0 3">
+            <Label Width="70">Save to :</Label>
+            <Button DockPanel.Dock="Right" Padding="10 2" Margin="5 0 0 0" Click="BrowseButton_Click">...</Button>
+            <TextBox x:Name="pathTextBox" VerticalContentAlignment="Center"></TextBox>
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 5">
+            <Button Padding="20 5" Margin="0 0 5 0" Background="#FF00AB2A" Foreground="White" FontWeight="Bold" Click="DownloadButton_Click">Download</Button>
+            <Button Padding="20 5" Margin="0 0 5 0" Background="#FFE41717" Foreground="White" FontWeight="Bold" Click="CancelButton_Click">Cancel</Button>
+            <Button Padding="20 5" Background="#FF1398ED" Foreground="White" FontWeight="Bold" Click="OpenButton_Click">Open file</Button>
+        </StackPanel>
+        <ListView x:Name="downloadsListView" MouseDoubleClick="DownloadsListView_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="File name" Width="300" DisplayMemberBinding="{Binding FileName}"/>
+                    <GridViewColumn Header="Size" Width="150" DisplayMemberBinding="{Binding SizeText}"/>
+                    <GridViewColumn Header="Status" Width="200" DisplayMemberBinding="{Binding Status}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

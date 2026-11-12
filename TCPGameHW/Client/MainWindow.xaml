@@ -1,0 +1,102 @@
+<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:commands="clr-namespace:CommandClasses;assembly=CommandClasses"
+        mc:Ignorable="d"
+        Title="Tic Tac Toe" Height="520" Width="560"
+        Closed="Window_Closed">
+    <DockPanel>
+        <ToolBar Height="Auto" DockPanel.Dock="Top">
+            <Label>User Name:</Label>
+            <TextBox Name="nameTxtBox" FontWeight="Bold" Width="80">Name</TextBox>
+            <Label>IP:</Label>
+            <TextBox Name="ipTxtBox" FontWeight="Bold">127.0.0.1</TextBox>
+            <Label>Port:</Label>
+            <TextBox Name="portTxtBox" FontWeight="Bold">8080</TextBox>
+            <RadioButton Name="humanRadio" GroupName="mode" IsChecked="True" VerticalAlignment="Center" Margin="5 0">Human</RadioButton>
+            <RadioButton Name="computerRadio" GroupName="mode" VerticalAlignment="Center" Margin="5 0">Computer</RadioButton>
+            <Button Click="Button_Click" Background="#FF8BD4ED" FontWeight="Bold" BorderThickness="2" BorderBrush="Black" Padding="5 2">Start</Button>
+        </ToolBar>
+        <ToolBar Height="Auto" DockPanel.Dock="Top">
+            <Label>Mode:</Label>
+            <Label Name="modeLabel" FontWeight="Bold">-</Label>
+            <Label>You:</Label>
+            <Label Name="symbolLabel" FontWeight="Bold">-</Label>
+            <Label>Opponent:</Label>
+            <Label Name="opponentNameTxtBox" FontWeight="Bold">-</Label>
+            <Button Name="drawBtn" Click="DrawButton_Click" Padding="5 2" Margin="5 0" IsEnabled="False">Offer draw</Button>
+            <Button Name="surrenderBtn" Click="SurrenderButton_Click" Padding="5 2" IsEnabled="False">Surrender</Button>
+        </ToolBar>
+        <Label DockPanel.Dock="Bottom" Name="statusLabel" FontWeight="Bold" HorizontalAlignment="Center">Press Start to play</Label>
+        <Grid Name="fieldGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border MouseDown="Border_MouseDown" Grid.Column="0" Grid.Row="0" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="0" ColumnIndex="0"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="1" Grid.Row="0" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="0" ColumnIndex="1"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="2" Grid.Row="0" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="0" ColumnIndex="2"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="0" Grid.Row="1" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="1" ColumnIndex="0"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="1" Grid.Row="1" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="1" ColumnIndex="1"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="2" Grid.Row="1" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="1" ColumnIndex="2"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="0" Grid.Row="2" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="2" ColumnIndex="0"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="1" Grid.Row="2" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="2" ColumnIndex="1"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+            <Border MouseDown="Border_MouseDown" Grid.Column="2" Grid.Row="2" Background="Gray" BorderBrush="Black" BorderThickness="2">
+                <Border.Tag>
+                    <commands:CellCoord RowIndex="2" ColumnIndex="2"/>
+                </Border.Tag>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="50"></TextBlock>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

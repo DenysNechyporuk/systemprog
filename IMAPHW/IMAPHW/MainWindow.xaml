@@ -1,0 +1,96 @@
+<Window x:Class="IMAPHW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMAPHW"
+        mc:Ignorable="d"
+        Title="Mail Client" Height="600" Width="1100" Closed="Window_Closed">
+    <Grid>
+        <StackPanel x:Name="loginPanel" Width="300" VerticalAlignment="Center">
+            <TextBlock FontSize="22" FontWeight="Bold" TextAlignment="Center" Margin="0 0 0 15">Login</TextBlock>
+            <Label>Mail service :</Label>
+            <ComboBox x:Name="serviceComboBox" SelectedIndex="0">
+                <ComboBoxItem>Gmail</ComboBoxItem>
+                <ComboBoxItem>Ukr.net</ComboBoxItem>
+                <ComboBoxItem>iCloud</ComboBoxItem>
+            </ComboBox>
+            <Label>Email :</Label>
+            <TextBox x:Name="emailTextBox" Padding="3"></TextBox>
+            <Label>Password (app password) :</Label>
+            <PasswordBox x:Name="passwordBox" Padding="3"></PasswordBox>
+            <Button x:Name="loginBtn" Margin="0 15 0 0" Padding="10" Background="#FF1398ED" Foreground="White" FontWeight="Bold" Click="LoginButton_Click">Login</Button>
+        </StackPanel>
+
+        <Grid x:Name="mainPanel" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0" Margin="5">
+                <TextBlock DockPanel.Dock="Top" FontWeight="Bold" FontSize="16">Folders</TextBlock>
+                <StackPanel DockPanel.Dock="Bottom">
+                    <TextBox x:Name="folderNameTextBox" Margin="0 3"></TextBox>
+                    <Button Margin="0 0 0 3" Click="CreateFolderButton_Click">Create folder</Button>
+                    <Button Click="RenameFolderButton_Click">Rename folder</Button>
+                </StackPanel>
+                <ListBox x:Name="foldersListBox" DisplayMemberPath="FullName" SelectionChanged="FoldersListBox_SelectionChanged"></ListBox>
+            </DockPanel>
+
+            <DockPanel Grid.Column="1" Margin="5">
+                <DockPanel DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Right" Padding="10 2" Click="SearchButton_Click">Search</Button>
+                    <TextBox x:Name="searchTextBox" VerticalContentAlignment="Center" Margin="0 0 5 0"></TextBox>
+                </DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 5">
+                    <Label>Sort :</Label>
+                    <ComboBox x:Name="sortComboBox" SelectedIndex="0" Width="120" SelectionChanged="SortComboBox_SelectionChanged">
+                        <ComboBoxItem>Newest first</ComboBoxItem>
+                        <ComboBoxItem>Oldest first</ComboBoxItem>
+                        <ComboBoxItem>By subject</ComboBoxItem>
+                        <ComboBoxItem>By sender</ComboBoxItem>
+                    </ComboBox>
+                    <CheckBox x:Name="unreadCheckBox" VerticalAlignment="Center" Margin="10 0" Click="UnreadCheckBox_Click">Only unread</CheckBox>
+                    <Button Padding="10 2" Click="NewMessageButton_Click" Background="#FF00AB2A" Foreground="White" FontWeight="Bold">New message</Button>
+                </StackPanel>
+                <TextBlock DockPanel.Dock="Bottom" x:Name="statusText"></TextBlock>
+                <ListView x:Name="messagesListView" SelectionChanged="MessagesListView_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="From" Width="150" DisplayMemberBinding="{Binding From}"/>
+                            <GridViewColumn Header="Subject" Width="200" DisplayMemberBinding="{Binding Subject}"/>
+                            <GridViewColumn Header="Date" Width="120" DisplayMemberBinding="{Binding Date, StringFormat=dd.MM.yyyy HH:mm}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+
+            <DockPanel Grid.Column="2" Margin="5">
+                <StackPanel DockPanel.Dock="Top">
+                    <TextBlock><Bold>From : </Bold><Run x:Name="fromRun"/></TextBlock>
+                    <TextBlock><Bold>To : </Bold><Run x:Name="toRun"/></TextBlock>
+                    <TextBlock><Bold>Date : </Bold><Run x:Name="dateRun"/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Bold>Subject : </Bold><Run x:Name="subjectRun"/></TextBlock>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom">
+                    <StackPanel Orientation="Horizontal" Margin="0 5">
+                        <Button Padding="10 3" Margin="0 0 5 0" Click="ReplyButton_Click">Reply</Button>
+                        <Button Padding="10 3" Margin="0 0 5 0" Click="DeleteButton_Click" Background="#FFE41717" Foreground="White">Delete</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Move to :</Label>
+                        <ComboBox x:Name="moveComboBox" Width="170" DisplayMemberPath="FullName"></ComboBox>
+                        <Button Padding="10 3" Margin="5 0 0 0" Click="MoveButton_Click">Move</Button>
+                    </StackPanel>
+                </StackPanel>
+                <DockPanel DockPanel.Dock="Bottom" Height="80" Margin="0 5 0 0">
+                    <TextBlock DockPanel.Dock="Top" FontWeight="Bold">Attachments :</TextBlock>
+                    <ListBox x:Name="attachmentsListBox"></ListBox>
+                </DockPanel>
+                <TextBox x:Name="bodyTextBox" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0 5 0 0"></TextBox>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+<Window x:Class="ChatUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatUI"
+        mc:Ignorable="d"
+        Title="TCP Chat" Height="450" Width="800" Closed="Window_Closed">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label FontSize="15" FontWeight="Bold" Margin="10">Name :</Label>
+            <Button x:Name="joinBtn" Margin="5" Padding="20 10" DockPanel.Dock="Right" Click="JoinButton_Click" Background="#FF00AB2A" FontSize="14" FontWeight="Bold" Foreground="White">Join</Button>
+            <Button x:Name="leaveBtn" Margin="5" Padding="20 10" DockPanel.Dock="Right" Foreground="White" Background="#FFE41717" FontWeight="Bold" FontSize="14" Click="LeaveButton_Click" IsEnabled="False">Leave</Button>
+            <TextBox x:Name="nameTextBox" VerticalContentAlignment="Center" Margin="5"></TextBox>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label FontSize="15" FontWeight="Bold" Margin="10">Message :</Label>
+            <Button x:Name="sendBtn" Margin="5" Padding="20 10" DockPanel.Dock="Right" Click="SendButtonClick" Background="#FF1398ED" FontWeight="Bold" FontSize="14" Foreground="White" IsEnabled="False" IsDefault="True">Send</Button>
+            <TextBox x:Name="msgTextBox" VerticalContentAlignment="Center" Margin="5"></TextBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontWeight="Bold" FontSize="25">Chat</TextBlock>
+        <ListBox ItemsSource="{Binding}" FontSize="14"></ListBox>
+    </DockPanel>
+</Window>
